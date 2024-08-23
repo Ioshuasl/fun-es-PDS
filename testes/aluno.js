@@ -10,13 +10,9 @@ export class Aluno {
 
     adiconarTreino(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao){
         const treino = new Treino(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
-        this.treinos.push(treino)
-    }
-
-    listarTreinos(){
-        console.log(this.treinos)
+        treino.chamarEvento(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
     }
 }
 
 let aluno = new Aluno('ioshua','11,02,2005','ioshua@email.com')
-console.log(aluno.adiconarTreino('peito','2024,09,5','09:00','10:00',10,'supino...'))
+console.table(aluno.adiconarTreino('peito','2024,09,5','09:00','10:00',10,'supino...'))

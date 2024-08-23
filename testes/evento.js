@@ -1,18 +1,5 @@
-// const intervaloDeDias = 7;
-
 import { Treino } from "./treino.js";
 
-// const qtdTreinos = 10
-
-// let contagemDeTreinos = 0
-
-// while (contagemDeTreinos < qtdTreinos) {
-//     console.log(`evento Treino${contagemDeTreinos} criado nos dias ${dataInicio.toISOString().split('T')[0]}`);
-    
-//     dataInicio.setDate(dataInicio.getDate() + intervaloDeDias);
-    
-//     contagemDeTreinos++;
-// }
 
 export function evento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos, descricao) {
 
@@ -40,9 +27,4 @@ export function evento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos,
     }
     return treinos
 }
-
-
-
-//console.log(evento('peito','2024,08,22','09:00','10:00',10,'supino...'))
-
 
