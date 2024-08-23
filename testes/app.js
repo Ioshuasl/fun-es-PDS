@@ -1,6 +1,6 @@
-import { evento } from './eventorecorrente.js'; // Importação da função evento
+import { evento } from './evento.js'; // Importação da função evento
 
-const treinos = evento('peito','2024,09,5','09:00','10:00',10,'supino...');
+const treinosacb = evento('peito','2024,09,5','09:00','10:00',10,'supino...');
 
 treinos.forEach((treino, index) => {
     console.log(`Treino ${index + 1}:`);
@@ -12,3 +12,4 @@ treinos.forEach((treino, index) => {
     console.log(`Descrição: ${treino.descricao}`);
     console.log('----------------------------');
 });
+

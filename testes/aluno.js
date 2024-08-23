@@ -1,4 +1,4 @@
-
+import { Treino } from "./treino.js"
 
 export class Aluno {
     constructor(nome,dataNasc, email){
@@ -18,3 +18,5 @@ export class Aluno {
     }
 }
 
+let aluno = new Aluno('ioshua','11,02,2005','ioshua@email.com')
+console.log(aluno.adiconarTreino('peito','2024,09,5','09:00','10:00',10,'supino...'))
