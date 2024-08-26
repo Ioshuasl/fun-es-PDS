@@ -36,6 +36,7 @@ export class Treino{
     }
 }
 
-let treino1 = new Treino('peito','2024,09,5','09:00','10:00',10,'supino...')
-treino1.chamarEvento('peito','2024,09,5','09:00','10:00',10,'supino...')
-console.table(treino1.treinos)
+//let treino1 = new Treino('peito','2024,09,5','09:00','10:00',10,'supino...')
+//treino1.chamarEvento('peito','2024,09,5','09:00','10:00',10,'supino...')
+//console.table(treino1.treinos)
+//console.log(treino1.treinos.length)

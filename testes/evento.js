@@ -27,4 +27,3 @@ export function evento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos,
     }
     return treinos
 }
-
