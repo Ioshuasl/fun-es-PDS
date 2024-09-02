@@ -45,6 +45,3 @@ export class Aluno {
         return this.treinos.filter(treino => treino.titulo === titulo)
     }
 }
-
-//let aluno = new Aluno('ioshua','11,02,2005','ioshua@email.com')
-//console.table(aluno.adiconarTreino('peito','2024,09,5','09:00','10:00',10,'supino...'))

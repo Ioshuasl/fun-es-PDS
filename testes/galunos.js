@@ -10,14 +10,18 @@ export class GerenciadorAlunos{
         this.alunos.push(aluno)
     }
 
-    addTreino(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao,aluno){
-        //aluno.adicionarTreino(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
-        console.log('treino adicionado', aluno.nome)
+    mostrarTreino(index){
+        console.log(this.alunos[index].getTreino())
     }
 
     getAlunos(){
         this.alunos.forEach((aluno, index) => {
+            console.log(index)
             console.log(aluno)
         })
+    }
+
+    encontrarAluno(nome){
+        return this.alunos.findIndex(nome => nome === nome)
     }
 }
