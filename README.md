@@ -7,14 +7,8 @@
 2. **Agenda de Treinos**
     - **Visualização de Agenda:** Interface para visualizar os agendamentos diários, semanais e mensais.
     - **Agendamento de Sessões:** Ferramenta para marcar, editar e cancelar sessões de treino.
-    - **Notificações:** Envio de lembretes para personal trainers e clientes sobre sessões agendadas.
 3. **Gestão de Planos de Treino**
-    - **Criação de Planos:** Interface para criar e personalizar planos de treino com exercícios, séries, repetições e duração.
-    - **Biblioteca de Exercícios:** Repositório com descrições e imagens de exercícios para fácil seleção e inclusão nos planos.
-    - **Compartilhamento de Planos:** Possibilidade de enviar planos de treino para clientes com instruções detalhadas.
-4. **Monitoramento e Relatórios**
-    - **Registro de Progresso:** Ferramenta para registrar e monitorar o progresso dos clientes, incluindo medidas corporais e desempenho.
-    - **Relatórios de Treino:** Geração de relatórios detalhados sobre o progresso dos clientes e eficácia dos treinos.
+    - **Criação de Planos:** Interface para cadastrar os planos de treino e parametrizar os dias e horários dos treinos do cliente
 5. **Segurança e Privacidade**
     - **Autenticação:** Sistema de login seguro para personal trainers e clientes.
     - **Controle de Acesso:** Permissões para garantir que apenas pessoas autorizadas possam acessar informações sensíveis.
@@ -26,12 +20,19 @@
 ### **Requisitos Básicos**
 
 1. **Funcionalidade**
-    - **Cadastro e Gerenciamento de Usuários:** Deve permitir criar e gerenciar perfis de personal trainers e clientes.
+    - **Cadastro e Gerenciamento de Usuários:** Deve permitir criar e gerenciar perfil de personal trainers e clientes.
     - **Agenda e Agendamentos:** Funcionalidade completa para a gestão de agendamentos e lembretes.
-    - **Planos de Treino e Exercícios:** Ferramentas para criação, compartilhamento e modificação de planos de treino.
+    - **Planos de Treino e Exercícios:** Ferramentas para criação, exclusão e modificação de planos de treino.
 2. **Usabilidade**
     - **Interface Simples e Clara:** Design intuitivo para fácil navegação e uso.
     - **Acesso Multi-Dispositivo:** Compatibilidade com dispositivos móveis e desktops.
 3. **Segurança**
     - **Proteção de Dados:** Implementação de medidas de segurança para proteger as informações dos usuários.
     - **Autenticação Segura:** Sistema de login robusto para garantir a privacidade e segurança dos dados.
+4. **Caso de Uso do Usuário**
+    - Dentro do sistema o personal (usuário) terá
+      - Cadastro de clientes
+      - Edição e exclusão de clientes
+      - Cadastro de treinos para seus clientes cadastrados
+      - Edição e exclusão de treios
+      - A interface principal (agenda) vai mostrar para o personal todos seus compromissos com seus clientes do dia, qual cliente, o horário e qual o treino ele vai fazer 
