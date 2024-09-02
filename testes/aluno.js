@@ -13,7 +13,7 @@ export class Aluno {
         this.treinos = treino.chamarEvento(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
     }
 
-    getLista(){
+    getTreino(){
         return this.treinos.forEach((treino, index) => {
             console.log(`Treino ${index + 1}:`);
             console.log(`Título: ${treino.titulo}`);
@@ -24,6 +24,25 @@ export class Aluno {
             console.log(`Descrição: ${treino.descricao}`);
             console.log('----------------------------');
         })
+    }
+
+    removerTreino(index){
+        this.treinos.splice(index - 1, 1)
+    }
+
+    removerListaTreino(treino, titulo){
+        for (let i = 0; i < this.treinos.length; i++) {
+            if (treino.titulo === titulo){
+                console.log(i)
+            } else {
+                console.log('nao encontrado nada com esse titulo')
+            }
+
+        }
+    }
+
+    filtrarTreino(titulo){
+        return this.treinos.filter(treino => treino.titulo === titulo)
     }
 }
 
