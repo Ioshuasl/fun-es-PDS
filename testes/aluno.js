@@ -10,7 +10,8 @@ export class Aluno {
 
     adicionarTreino(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao){
         const treino = new Treino(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
-        this.treinos = treino.chamarEvento(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
+        const sessaotreinos = treino.chamarEvento(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
+        this.treinos = this.treinos.concat(sessaotreinos)
     }
 
     getTreino(){
