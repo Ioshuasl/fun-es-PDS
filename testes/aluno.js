@@ -20,7 +20,7 @@ export class Aluno {
         return this.treinos.forEach((treino, index) => {
             console.log(`Treino ${index + 1}:`);
             console.log(`Título: ${treino.titulo}`);
-            console.log(`Data: ${treino.dataInicial}`);
+            console.log(`Data: ${treino.dataInicial.toLocaleDateString()}`);
             console.log(`Hora Início: ${treino.horaInicio}`);
             console.log(`Hora Término: ${treino.horaTermnino}`);
             console.log(`Quantidade de Treinos: ${treino.qtdTreinos}`);

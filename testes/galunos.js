@@ -30,19 +30,53 @@ export class GerenciadorAlunos{
         return this.alunos.findIndex(nome => nome === nome)
     }
 
-    getCompromissoHoje(dataAtual) {
-        let data = new Date(dataAtual)
-        let alunosNoDia = [];
+    getCompromissoHoje() {
+        let data = new Date()
+        let compromissos = [];
 
         this.alunos.forEach(aluno => {
-            const temTreinoNoDia = aluno.treinos.findIndex(treino => treino.dataInicial.getTime() === data.getTime());
-            const objetoAluno = {
-                nome: aluno.nome,
-                treino: aluno.treinos[temTreinoNoDia]
+            const temTreinoNoDia = aluno.treinos.findIndex(treino => treino.dataInicial.toLocaleDateString() === data.toLocaleDateString());
+            let objetoAluno = Object()
+
+            if (temTreinoNoDia >= 0) {
+                objetoAluno = {
+                    nome: aluno.nome,
+                    titulo: aluno.treinos[temTreinoNoDia].titulo,
+                    data: aluno.treinos[temTreinoNoDia].dataInicial.toLocaleDateString(),
+                    horario: `${aluno.treinos[temTreinoNoDia].horaInicio} - ${aluno.treinos[temTreinoNoDia].horaTermnino}`,
+                    descricao: aluno.treinos[temTreinoNoDia].descricao
+                }
+                compromissos.push(objetoAluno)
             }
-            alunosNoDia.push(objetoAluno)
+
         });
 
-        return alunosNoDia;
+        return compromissos
+
+    }
+
+    getCompromissoDia(dataQualquer) {
+        let dataEspecifica = new Date(dataQualquer)
+        let compromissos = [];
+
+        this.alunos.forEach(aluno => {
+            const temTreinoNoDia = aluno.treinos.findIndex(treino => treino.dataInicial.toLocaleDateString() === dataEspecifica.toLocaleDateString());
+            let objetoAluno = Object()
+
+            if (temTreinoNoDia >= 0) {
+                objetoAluno = {
+                    nome: aluno.nome,
+                    titulo: aluno.treinos[temTreinoNoDia].titulo,
+                    data: aluno.treinos[temTreinoNoDia].dataInicial.toLocaleDateString(),
+                    horario: `${aluno.treinos[temTreinoNoDia].horaInicio} - ${aluno.treinos[temTreinoNoDia].horaTermnino}`,
+                    descricao: aluno.treinos[temTreinoNoDia].descricao
+                }
+                compromissos.push(objetoAluno)
+            }
+
+        });
+
+        return compromissos
+
     }
 }
