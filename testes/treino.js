@@ -15,9 +15,8 @@ export class Treino{
         this.treinos = evento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos, descricao)
         
         if (this.treinos.length > 0) {
-            console.log('treino cadastrado com sucesso')
         } else {
-            console.log('treino não foi cadastrado')
+            console.log('Erro na hora de cadastrar o aluno')
         }
         return this.treinos
     }

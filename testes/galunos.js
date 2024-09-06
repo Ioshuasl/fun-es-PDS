@@ -10,14 +10,24 @@ export class GerenciadorAlunos{
         this.alunos.push(aluno)
     }
 
-    mostrarTreino(index){
+    mostrarTreinosAluno(index){
         console.log(this.alunos[index].getTreino())
     }
 
     getAlunos(){
         this.alunos.forEach((aluno, index) => {
-            console.log(index)
-            console.log(aluno)
+            let oAluno = {
+                indice: index,
+                nome: aluno.nome,
+                dataNascimento: aluno.dataNasc,
+                email: aluno.email,
+            }
+            
+            console.log('Registro: ',oAluno.indice)
+            console.log('Nome: ', oAluno.nome)
+            console.log('Data de Nascimento: ',oAluno.dataNascimento)
+            console.log('Email: ',oAluno.email)
+            console.log('===============================')
         })
     }
 
@@ -27,7 +37,7 @@ export class GerenciadorAlunos{
     }
 
     encontrarAluno(nome){
-        return this.alunos.findIndex(nome => nome === nome)
+        return this.alunos.findIndex(aluno => aluno.nome === nome)
     }
 
     getCompromissoHoje() {
@@ -78,5 +88,13 @@ export class GerenciadorAlunos{
 
         return compromissos
 
+    }
+
+    removerAluno(index){
+        this.alunos.splice(index,1)
+    }
+
+    removerTreinosPorTitulo(indexAluno, titulo){        
+        return this.alunos[indexAluno].removerListaTreino(titulo)
     }
 }

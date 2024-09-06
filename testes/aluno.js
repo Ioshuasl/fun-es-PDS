@@ -33,19 +33,22 @@ export class Aluno {
         this.treinos.splice(index - 1, 1)
     }
 
-    removerListaTreino(treino, titulo){
-        for (let i = 0; i < this.treinos.length; i++) {
-            if (treino.titulo === titulo){
-                console.log(i)
-            } else {
-                console.log('nao encontrado nada com esse titulo')
-            }
-
-        }
+    removerListaTreino(titulo, treino){
+        this.treinos = this.treinos.filter(treino => treino.titulo !== titulo)
+        return this.treinos
     }
 
     filtrarTreino(titulo){
         return this.treinos.filter(treino => treino.titulo === titulo)
+    }
+
+
+    indiceTreino(titulo){
+        return this.treinos.forEach((treino, index) => {
+            if (treino.titulo === titulo){
+                console.log(index)
+            }
+        })
     }
 }
 
