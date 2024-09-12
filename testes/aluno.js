@@ -14,6 +14,8 @@ export class Aluno {
         const sessaotreinos = treino.chamarEvento(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
         this.treinos = this.treinos.concat(sessaotreinos)
         this.grupoTreino.push(sessaotreinos)
+        console.log('treino adicionado')
+        return this.treinos
     }
 
     getTreino(){

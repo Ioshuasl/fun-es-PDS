@@ -1,11 +1,11 @@
 import { evento } from "./evento.js"
 
 export class Treino{
-    constructor(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao){
+    constructor(titulo,dataInicial,horaInicio,horaTermino,qtdTreinos, descricao){
         this.titulo = titulo
         this.dataInicial = dataInicial
         this.horaInicio = horaInicio
-        this.horaTermnino = horaTermnino
+        this.horaTermino = horaTermino
         this.qtdTreinos = qtdTreinos
         this.descricao = descricao
     }
@@ -13,11 +13,6 @@ export class Treino{
 
     chamarEvento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos, descricao){
         this.treinos = evento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos, descricao)
-        
-        if (this.treinos.length > 0) {
-        } else {
-            console.log('Erro na hora de cadastrar o aluno')
-        }
         return this.treinos
     }
 
@@ -27,7 +22,7 @@ export class Treino{
             console.log(`Título: ${treino.titulo}`);
             console.log(`Data: ${treino.dataInicial}`);
             console.log(`Hora Início: ${treino.horaInicio}`);
-            console.log(`Hora Término: ${treino.horaTermnino}`);
+            console.log(`Hora Término: ${treino.horaTermino}`);
             console.log(`Quantidade de Treinos: ${treino.qtdTreinos}`);
             console.log(`Descrição: ${treino.descricao}`);
             console.log('----------------------------');

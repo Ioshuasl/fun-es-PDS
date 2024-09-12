@@ -5,35 +5,33 @@ export class GerenciadorAlunos{
         this.alunos = []
     }
 
-    adicionarAluno(nome,dataNasc, email){
+    adicionarAluno(nome, dataNasc, email){
         const aluno = new Aluno(nome,dataNasc, email)
         this.alunos.push(aluno)
+        console.log("aluno adicionado")
+        return aluno
     }
 
     mostrarTreinosAluno(index){
-        console.log(this.alunos[index].getTreino())
+        return (this.alunos[index].getTreino())
     }
 
     getAlunos(){
-        this.alunos.forEach((aluno, index) => {
-            let oAluno = {
-                indice: index,
-                nome: aluno.nome,
-                dataNascimento: aluno.dataNasc,
-                email: aluno.email,
-            }
-            
-            console.log('Registro: ',oAluno.indice)
-            console.log('Nome: ', oAluno.nome)
-            console.log('Data de Nascimento: ',oAluno.dataNascimento)
-            console.log('Email: ',oAluno.email)
-            console.log('===============================')
-        })
-    }
 
-    getTreinosDeAlunos(index, indexTreino){
-        console.log(this.alunos[index].nome)
-        console.log(this.alunos[index].treinos[indexTreino])
+        let listaAlunos = []
+        this.alunos.forEach((aluno, index) => {
+
+                let oAluno = {
+                    indice: index,
+                    nome: aluno.nome,
+                    dataDeNascimento: aluno.dataNasc,
+                    email: aluno.email
+                }
+
+                listaAlunos.push(oAluno)
+        })
+        return listaAlunos
+
     }
 
     encontrarAluno(nome){
@@ -53,7 +51,7 @@ export class GerenciadorAlunos{
                     nome: aluno.nome,
                     titulo: aluno.treinos[temTreinoNoDia].titulo,
                     data: aluno.treinos[temTreinoNoDia].dataInicial.toLocaleDateString(),
-                    horario: `${aluno.treinos[temTreinoNoDia].horaInicio} - ${aluno.treinos[temTreinoNoDia].horaTermnino}`,
+                    horario: `${aluno.treinos[temTreinoNoDia].horaInicio} - ${aluno.treinos[temTreinoNoDia].horaTermino}`,
                     descricao: aluno.treinos[temTreinoNoDia].descricao
                 }
                 compromissos.push(objetoAluno)
@@ -78,7 +76,7 @@ export class GerenciadorAlunos{
                     nome: aluno.nome,
                     titulo: aluno.treinos[temTreinoNoDia].titulo,
                     data: aluno.treinos[temTreinoNoDia].dataInicial.toLocaleDateString(),
-                    horario: `${aluno.treinos[temTreinoNoDia].horaInicio} - ${aluno.treinos[temTreinoNoDia].horaTermnino}`,
+                    horario: `${aluno.treinos[temTreinoNoDia].horaInicio} - ${aluno.treinos[temTreinoNoDia].horaTermino}`,
                     descricao: aluno.treinos[temTreinoNoDia].descricao
                 }
                 compromissos.push(objetoAluno)
@@ -98,3 +96,5 @@ export class GerenciadorAlunos{
         return this.alunos[indexAluno].removerListaTreino(titulo)
     }
 }
+
+export default new GerenciadorAlunos()
