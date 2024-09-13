@@ -7,18 +7,22 @@ routes.get('/alunos', (req,res) => {
     return res.json(GerenciadorAlunos.getAlunos())
 })
 
+routes.get('/all', (req,res) => {
+    return res.json(GerenciadorAlunos.alunos)
+})
+
 routes.get('/mostrarTreinoAluno/:id', (req,res) => {
 
     const {id} = req.params
-    return res.json({
-        aluno: GerenciadorAlunos.alunos[id].nome,
-        treinos: GerenciadorAlunos.alunos[id].treinos
-    })
+    const listaTreinos = GerenciadorAlunos.mostrarTreinosAluno(id)
+
+    return res.json({listaTreinos})
 })
 
 routes.get('/getCompromissoHoje', (req,res) => {
 
     const treinosHoje = GerenciadorAlunos.getCompromissoHoje()
+
     return res.json(treinosHoje)
 })
 
@@ -52,10 +56,10 @@ routes.post('/addAluno', (req, res) => {
 });
 
 routes.post('/addTreino/:id', (req,res) => {
-    const { titulo,dataInicial,horaInicio,horaTermino,qtdTreinos, descricao } = req.body
+    const { titulo,data,horaInicio,horaTermino, descricao, qtdTreinos } = req.body
     const { id } = req.params
 
-    const newTreino = GerenciadorAlunos.alunos[id].adicionarTreino(titulo,dataInicial,horaInicio,horaTermino,qtdTreinos, descricao)
+    const newTreino = GerenciadorAlunos.alunos[id].adicionarTreino(titulo,data,horaInicio,horaTermino, descricao, qtdTreinos)
 
     if (newTreino) {
         return res.status(201).json({
@@ -65,6 +69,22 @@ routes.post('/addTreino/:id', (req,res) => {
     } else {
         return res.status(500).json({ message: 'Erro ao criar treino '})
     }
+})
+
+routes.delete('/deleteAluno/:id', (req,res) =>{
+    const {id} = req.params
+
+    const deleteAluno = GerenciadorAlunos.removerAluno(id)
+
+    return res.json(deleteAluno)
+})
+
+routes.delete('/deleteTreinoAluno/:id/:tituloTreino', (req,res) => {
+    const {id,tituloTreino} = req.params
+
+    const deleteTreinoAluno = GerenciadorAlunos.alunos[id].removerListaTreino(tituloTreino)
+
+    return res.json(deleteTreinoAluno)
 })
 
 

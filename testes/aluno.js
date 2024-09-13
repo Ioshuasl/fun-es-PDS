@@ -6,14 +6,12 @@ export class Aluno {
         this.dataNasc = dataNasc
         this.email = email
         this.treinos = []
-        this.grupoTreino = []
     }
 
-    adicionarTreino(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao){
-        const treino = new Treino(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
-        const sessaotreinos = treino.chamarEvento(titulo,dataInicial,horaInicio,horaTermnino,qtdTreinos, descricao)
+    adicionarTreino(titulo,dataInicial,horaInicio,horaTermnino, descricao, qtdTreinos){
+        const treino = new Treino(titulo,dataInicial,horaInicio,horaTermnino, descricao, qtdTreinos)
+        const sessaotreinos = treino.chamarEvento(titulo,dataInicial,horaInicio,horaTermnino, descricao, qtdTreinos)
         this.treinos = this.treinos.concat(sessaotreinos)
-        this.grupoTreino.push(sessaotreinos)
         console.log('treino adicionado')
         return this.treinos
     }
@@ -37,6 +35,7 @@ export class Aluno {
 
     removerListaTreino(titulo, treino){
         this.treinos = this.treinos.filter(treino => treino.titulo !== titulo)
+        console.log('função executada')
         return this.treinos
     }
 

@@ -1,18 +1,19 @@
 import { evento } from "./evento.js"
 
 export class Treino{
-    constructor(titulo,dataInicial,horaInicio,horaTermino,qtdTreinos, descricao){
+    constructor(titulo,data,horaInicio,horaTermino, descricao, qtdTreinos){
         this.titulo = titulo
-        this.dataInicial = dataInicial
+        this.data = data
         this.horaInicio = horaInicio
         this.horaTermino = horaTermino
-        this.qtdTreinos = qtdTreinos
         this.descricao = descricao
     }
 
 
-    chamarEvento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos, descricao){
-        this.treinos = evento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos, descricao)
+
+
+    chamarEvento(titulo, data, horaInicio, horaTermino, descricao, qtdTreinos){
+        this.treinos = evento(titulo, data, horaInicio, horaTermino, descricao, qtdTreinos)
         return this.treinos
     }
 
@@ -20,7 +21,7 @@ export class Treino{
         this.treinos.forEach((treino, index) => {
             console.log(`Treino ${index + 1}:`);
             console.log(`Título: ${treino.titulo}`);
-            console.log(`Data: ${treino.dataInicial}`);
+            console.log(`Data: ${treino.data}`);
             console.log(`Hora Início: ${treino.horaInicio}`);
             console.log(`Hora Término: ${treino.horaTermino}`);
             console.log(`Quantidade de Treinos: ${treino.qtdTreinos}`);

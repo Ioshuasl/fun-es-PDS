@@ -13,7 +13,22 @@ export class GerenciadorAlunos{
     }
 
     mostrarTreinosAluno(index){
-        return (this.alunos[index].getTreino())
+
+        let listaTreinos = []
+
+        this.alunos[index].treinos.forEach((treino,index) => {
+            let objetoTreino = {
+                indice: index,
+                titulo: treino.titulo,
+                data: treino.data,
+                Inicio: treino.horaInicio,
+                Termino: treino.horaTermino,
+                descricao: treino.descricao
+            }
+
+            listaTreinos.push(objetoTreino)
+        })
+        return listaTreinos
     }
 
     getAlunos(){
@@ -43,14 +58,14 @@ export class GerenciadorAlunos{
         let compromissos = [];
 
         this.alunos.forEach(aluno => {
-            const temTreinoNoDia = aluno.treinos.findIndex(treino => treino.dataInicial.toLocaleDateString() === data.toLocaleDateString());
+            const temTreinoNoDia = aluno.treinos.findIndex(treino => treino.data.toLocaleDateString() === data.toLocaleDateString());
             let objetoAluno = Object()
 
             if (temTreinoNoDia >= 0) {
                 objetoAluno = {
                     nome: aluno.nome,
                     titulo: aluno.treinos[temTreinoNoDia].titulo,
-                    data: aluno.treinos[temTreinoNoDia].dataInicial.toLocaleDateString(),
+                    data: aluno.treinos[temTreinoNoDia].data.toLocaleDateString(),
                     horario: `${aluno.treinos[temTreinoNoDia].horaInicio} - ${aluno.treinos[temTreinoNoDia].horaTermino}`,
                     descricao: aluno.treinos[temTreinoNoDia].descricao
                 }
@@ -68,14 +83,14 @@ export class GerenciadorAlunos{
         let compromissos = [];
 
         this.alunos.forEach(aluno => {
-            const temTreinoNoDia = aluno.treinos.findIndex(treino => treino.dataInicial.toLocaleDateString() === dataEspecifica.toLocaleDateString());
+            const temTreinoNoDia = aluno.treinos.findIndex(treino => treino.data.toLocaleDateString() === dataEspecifica.toLocaleDateString());
             let objetoAluno = Object()
 
             if (temTreinoNoDia >= 0) {
                 objetoAluno = {
                     nome: aluno.nome,
                     titulo: aluno.treinos[temTreinoNoDia].titulo,
-                    data: aluno.treinos[temTreinoNoDia].dataInicial.toLocaleDateString(),
+                    data: aluno.treinos[temTreinoNoDia].data.toLocaleDateString(),
                     horario: `${aluno.treinos[temTreinoNoDia].horaInicio} - ${aluno.treinos[temTreinoNoDia].horaTermino}`,
                     descricao: aluno.treinos[temTreinoNoDia].descricao
                 }
@@ -89,7 +104,7 @@ export class GerenciadorAlunos{
     }
 
     removerAluno(index){
-        this.alunos.splice(index,1)
+        return this.alunos.splice(index,1)
     }
 
     removerTreinosPorTitulo(indexAluno, titulo){        

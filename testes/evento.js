@@ -1,13 +1,15 @@
 import { Treino } from "./treino.js";
 
 
-export function evento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos, descricao) {
+export function evento(titulo, data, horaInicio, horaTermino, descricao, qtdTreinos) {
 
-    let dataInicio = new Date(dataInicial)
+    if (qtdTreinos === null || qtdTreinos === 1) {
+        qtdTreinos = 1
+    }
+
+    let dataInicio = new Date(data)
 
     let treinos = []
-
-    let data
 
     const intervaloDeDias = 7;
 
@@ -15,10 +17,10 @@ export function evento(titulo, dataInicial, horaInicio, horaTermino, qtdTreinos,
 
     while (contagemDeTreinos < qtdTreinos) {
         
-        let treino = new Treino(titulo, new Date(dataInicio), horaInicio, horaTermino, qtdTreinos, descricao)
+        let treino = new Treino(titulo, new Date(dataInicio), horaInicio, horaTermino, descricao)
         treinos.push(treino)
-        data = dataInicio.setDate(dataInicio.getDate() + intervaloDeDias)
-        dataInicial = new Date(data)
+        let dataSeguinte = dataInicio.setDate(dataInicio.getDate() + intervaloDeDias)
+        data = new Date(dataSeguinte)
         
         
         
