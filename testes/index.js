@@ -1,11 +1,22 @@
 import express from "express"
 import routes from "./routes.js"
+import sequelize from "./database.js";
+import router from "./newRoutes.js";
 
 const app = express()
-const PORT = 5172
+const PORT = 5172;
+
+try {
+    await sequelize.authenticate(); //verifica a conexão com o banco de dados
+    console.log("Conexão com o banco de dados estabelecida com sucesso!");
+    await sequelize.sync(); // Sincroniza os modelos com o banco de dados
+    console.log("Modelos sincronizados com sucesso!");
+} catch (error) {
+    console.error("Falha ao conectar com o banco de dados:", error);
+}
 
 app.use(express.json());
-app.use(routes)
+app.use(router)
 
 app.get('/', (req,res)=> {
     res.send('hello world')

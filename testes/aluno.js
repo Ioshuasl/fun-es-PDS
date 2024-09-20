@@ -8,9 +8,9 @@ export class Aluno {
         this.treinos = []
     }
 
-    adicionarTreino(titulo,dataInicial,horaInicio,horaTermnino, descricao, qtdTreinos){
-        const treino = new Treino(titulo,dataInicial,horaInicio,horaTermnino, descricao, qtdTreinos)
-        const sessaotreinos = treino.chamarEvento(titulo,dataInicial,horaInicio,horaTermnino, descricao, qtdTreinos)
+    adicionarTreino(titulo,data,horaInicio,horaTermnino, descricao, qtdTreinos){
+        const treino = new Treino(titulo,data,horaInicio,horaTermnino, descricao, qtdTreinos)
+        const sessaotreinos = treino.chamarEvento(titulo,data,horaInicio,horaTermnino, descricao, qtdTreinos)
         this.treinos = this.treinos.concat(sessaotreinos)
         console.log('treino adicionado')
         return this.treinos

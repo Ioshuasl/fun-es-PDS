@@ -19,11 +19,7 @@ export function evento(titulo, data, horaInicio, horaTermino, descricao, qtdTrei
         
         let treino = new Treino(titulo, new Date(dataInicio), horaInicio, horaTermino, descricao)
         treinos.push(treino)
-        let dataSeguinte = dataInicio.setDate(dataInicio.getDate() + intervaloDeDias)
-        data = new Date(dataSeguinte)
-        
-        
-        
+        dataInicio.setDate(dataInicio.getDate() + intervaloDeDias)
         contagemDeTreinos++;
 
     }
